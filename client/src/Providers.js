@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
-import { Button, Table, Container, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import { Table, Container } from 'reactstrap';
 import Actions from './ActionButtons';
+import CreateProvider from './CreateProviders';
 
 const providers =
     [{
@@ -39,13 +40,13 @@ class Providers extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      data: providers 
+      data: providers,
     }
   }
   render(){
       return(
           <Container>
-              <Button color="primary">Crear</Button>
+              <CreateProvider data={this.state.data}/>
               <br /> <br /> 
               <Table>
                 <thead>
@@ -55,10 +56,11 @@ class Providers extends React.Component{
                     <th>Nombre</th>
                     <th>Representante Legal</th>
                     <th>Direccion</th>
+                    <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {this.state.data.map((elemento) => (
+                  {this.state.data.map((elemento, i) => (
                     <tr>
                       <td>{elemento.id}</td>
                       <td>{elemento.Nit}</td>
