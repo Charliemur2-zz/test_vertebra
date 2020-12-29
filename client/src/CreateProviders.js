@@ -5,17 +5,38 @@ import { Modal, ModalBody, ModalFooter, ModalHeader, FormGroup, Button } from 'r
 class CreateProvider extends React.Component {
     constructor(props){
         super(props);
+        console.log(props)
         this.state = {
-            modalInsertar: false 
+            modalInsertar: false,
+            form: this.props.form 
         }
+        this.handleChange = this.handleChange.bind(this);
         this.showForm = this.showForm.bind(this);
         this.hideForm = this.hideForm.bind(this);
+        this.insertElement = this.insertElement.bind(this);
+
+    }
+    handleChange = (e) => {
+        this.setState({
+            form: {
+                ...this.state.form,
+                [e.target.name]: e.target.value,
+            }
+        });
     }
     showForm = () => {
         this.setState({ modalInsertar: true});
     }
     hideForm = () => {
         this.setState({ modalInsertar: false});
+    }
+    insertElement = () => {
+        let newElement = {...this.state.form};
+        newElement.id = this.props.data.length + 1;
+        let newData = this.props.data;
+        newData.push(newElement);
+        this.setState({ data: newData, modalInsertar: false});
+
     }
     render(){
         return(
@@ -35,23 +56,23 @@ class CreateProvider extends React.Component {
                         </FormGroup>
                         <FormGroup>
                             <label>Nit:</label>
-                            <input className="form-control" name="Nit" type="text"/>
+                            <input className="form-control" name="Nit" type="text" onChange={this.handleChange}/>
                         </FormGroup>
                         <FormGroup>
                             <label>Nombre:</label>
-                            <input className="form-control" name="Nombre" type="text"/>
+                            <input className="form-control" name="Nombre" type="text" onChange={this.handleChange}/>
                         </FormGroup>
                         <FormGroup>
                             <label>Representante Legal:</label>
-                            <input className="form-control" name="Reprersentante_Legal" type="text"/>
+                            <input className="form-control" name="Representante_Legal" type="text" onChange={this.handleChange}/>
                         </FormGroup>
                         <FormGroup>
                             <label>Direccion:</label>
-                            <input className="form-control" name="Direccion" type="text"/>
+                            <input className="form-control" name="Direccion" type="text" onChange={this.handleChange}/>
                         </FormGroup>
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="success">Guardar</Button>{' '}
+                        <Button color="success" onClick={this.insertElement}>Guardar</Button>{' '}
                         <Button color="danger" onClick={this.hideForm}>Cancelar</Button>{' '}
                     </ModalFooter>
                 </Modal>

@@ -19,9 +19,9 @@ class ElementBox extends React.Component {
     render(){
         return(
             <div>
-                <Button color="secondary" onClick={this.toggleDiv}>Productos</Button>{' '}
+                <Button color="secondary" onClick={this.toggleDiv}>Provedores</Button>{' '}
                 {this.state.show && <Providers/>}
-                <Button color="secondary">Provedores</Button>{' '}
+                <Button color="secondary">Productos</Button>{' '}
                 <Button color="secondary">Tiendas</Button>{' '}
             </div>
         );

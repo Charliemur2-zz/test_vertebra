@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import { Table, Container } from 'reactstrap';
-import Actions from './ActionButtons';
+import { Table, Container, Button } from 'reactstrap';
 import CreateProvider from './CreateProviders';
+import Edit from './ActionButtons';
 
 const providers =
     [{
@@ -41,12 +41,34 @@ class Providers extends React.Component{
     super(props);
     this.state = {
       data: providers,
+      form: {
+        ID: '',
+        Nit: '',
+        Nombre: '',
+        Representante_Legal: '',
+        Direccion: ''
+      }
+    }
+    /* this.deleteElement = this.deleteElement.bind(this); */
+  }
+  deleteElement = (singledata) => {
+    let option = window.confirm("esta seguro de eliminar el registro" + singledata.id);
+    if (option){
+      let counter = 0;
+      let list = this.state.data;
+      list.forEach((item) => {
+        if (item.id === singledata.id) {
+          list.splice(counter, 1);
+        }
+        counter++;
+      });
+      this.setState({data: list});
     }
   }
   render(){
       return(
           <Container>
-              <CreateProvider data={this.state.data}/>
+              <CreateProvider data={this.state.data} form={this.state.form}/>
               <br /> <br /> 
               <Table>
                 <thead>
@@ -60,14 +82,15 @@ class Providers extends React.Component{
                   </tr>
                 </thead>
                 <tbody>
-                  {this.state.data.map((elemento, i) => (
+                  {this.state.data.map((elemento) => (
                     <tr>
                       <td>{elemento.id}</td>
                       <td>{elemento.Nit}</td>
                       <td>{elemento.Nombre}</td>
                       <td>{elemento.Representante_Legal}</td>
                       <td>{elemento.Direccion}</td>
-                      <td><Actions/></td>
+                      <td><Edit data={this.state.data} form={this.state.form}/></td>
+                      <td><Button onClick={this.deleteElement.bind(null, elemento)}>Eliminar</Button></td>
                     </tr>
                   ))}
                 </tbody>
