@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/test_vertebra/static/css/main.79409dd5.chunk.css",
+    "main.js": "/test_vertebra/static/js/main.d9a3613e.chunk.js",
+    "main.js.map": "/test_vertebra/static/js/main.d9a3613e.chunk.js.map",
+    "runtime-main.js": "/test_vertebra/static/js/runtime-main.0f1becbf.js",
+    "runtime-main.js.map": "/test_vertebra/static/js/runtime-main.0f1becbf.js.map",
+    "static/css/2.20aa2d7b.chunk.css": "/test_vertebra/static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.c21cca6a.chunk.js": "/test_vertebra/static/js/2.c21cca6a.chunk.js",
+    "static/js/2.c21cca6a.chunk.js.map": "/test_vertebra/static/js/2.c21cca6a.chunk.js.map",
+    "index.html": "/test_vertebra/index.html",
+    "static/css/2.20aa2d7b.chunk.css.map": "/test_vertebra/static/css/2.20aa2d7b.chunk.css.map",
+    "static/css/main.79409dd5.chunk.css.map": "/test_vertebra/static/css/main.79409dd5.chunk.css.map",
+    "static/js/2.c21cca6a.chunk.js.LICENSE.txt": "/test_vertebra/static/js/2.c21cca6a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0f1becbf.js",
+    "static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.c21cca6a.chunk.js",
+    "static/css/main.79409dd5.chunk.css",
+    "static/js/main.d9a3613e.chunk.js"
+  ]
+}
