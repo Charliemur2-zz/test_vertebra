@@ -8,9 +8,11 @@ class ElementBox extends React.Component {
         this.state = {
             show: false
         }
+        // bind methods to this
         this.toggleDiv = this.toggleDiv.bind(this);    
         
     }
+    // method to show element table
     toggleDiv = () => {
         const { show } = this.state;
         this.setState({ show: !show});

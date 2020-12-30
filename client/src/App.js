@@ -1,6 +1,7 @@
 import React from 'react';
 import ElementBox from './ElementBox';
 
+// Principal app page
 class App extends React.Component {
   render(){
     return(

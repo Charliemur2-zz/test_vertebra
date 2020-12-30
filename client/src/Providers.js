@@ -4,6 +4,7 @@ import { Table, Container, Button } from 'reactstrap';
 import CreateProvider from './CreateProviders';
 import Edit from './ActionButtons';
 
+// Temporal initial items
 const providers =
     [{
         "id": 1,
@@ -49,8 +50,8 @@ class Providers extends React.Component{
         Direccion: ''
       }
     }
-    /* this.deleteElement = this.deleteElement.bind(this); */
   }
+  // method to delete item in table
   deleteElement = (singledata) => {
     let option = window.confirm("esta seguro de eliminar el registro" + singledata.id);
     if (option){

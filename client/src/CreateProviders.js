@@ -3,6 +3,7 @@ import './App.css';
 import { Modal, ModalBody, ModalFooter, ModalHeader, FormGroup, Button } from 'reactstrap';
 
 class CreateProvider extends React.Component {
+    // Constructor
     constructor(props){
         super(props);
         console.log(props)
@@ -10,12 +11,14 @@ class CreateProvider extends React.Component {
             modalInsertar: false,
             form: this.props.form 
         }
+        // bind methods to this
         this.handleChange = this.handleChange.bind(this);
         this.showForm = this.showForm.bind(this);
         this.hideForm = this.hideForm.bind(this);
         this.insertElement = this.insertElement.bind(this);
 
     }
+    // handleChange methos to show change values
     handleChange = (e) => {
         this.setState({
             form: {
@@ -24,12 +27,15 @@ class CreateProvider extends React.Component {
             }
         });
     }
+     // method to show the modal form
     showForm = () => {
         this.setState({ modalInsertar: true});
     }
+    // method to hide modal form
     hideForm = () => {
         this.setState({ modalInsertar: false});
     }
+    // method to insert new element in table
     insertElement = () => {
         let newElement = {...this.state.form};
         newElement.id = this.props.data.length + 1;
@@ -41,8 +47,10 @@ class CreateProvider extends React.Component {
     render(){
         return(
             <div>
+                {/* Button to create new item */}
                 <Button color="primary" onClick={this.showForm}>Crear</Button>
                     {this.state.show && <CreateProvider/>}
+                {/* Modal form to insert new item */}
                 <Modal isOpen={this.state.modalInsertar}>
                     <ModalHeader>
                         <div>

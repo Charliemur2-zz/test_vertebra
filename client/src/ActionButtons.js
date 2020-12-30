@@ -3,18 +3,23 @@ import './App.css';
 import { Modal, ModalBody, ModalFooter, ModalHeader, FormGroup, Button } from 'reactstrap';
 
 class Edit extends React.Component {
+    // constructor
     constructor(props){
         super(props);
         this.state = {
             modalEdit: false,
             form: this.props.form 
         }
+        console.log(this.props)
+        console.log(this.props.data)
+        // bind methods to this
        /*  this.handleChange = this.handleChange.bind(this); */
-        this.showForm = this.showForm.bind(this);
-        this.hideForm = this.hideForm.bind(this);
+        this.showFormEdit = this.showFormEdit.bind(this);
+        this.hideFormEdit = this.hideFormEdit.bind(this);
         /* this.insertElement = this.insertElement.bind(this);
  */
     }
+    // handleChange methos to show change values
     /* handleChange = (e) => {
         this.setState({
             form: {
@@ -23,13 +28,15 @@ class Edit extends React.Component {
             }
         });
     } */
-    showForm = () => {
+    // method to show the modal form
+    showFormEdit = () => {
         this.setState({ modalEdit: true});
     }
-    hideForm = () => {
+    // methos to hide modal form
+    hideFormEdit = () => {
         this.setState({ modalEdit: false});
     }
-    i/* nsertElement = () => {
+    /* insertElement = () => {
         let newElement = {...this.state.form};
         newElement.id = this.props.data.length + 1;
         let newData = this.props.data;
@@ -39,18 +46,20 @@ class Edit extends React.Component {
     render() {
         return(
             <div>
-                <Button color="primary" onClick={this.showForm}>Editar</Button>
+                {/* Button Edit */}
+                <Button color="primary" onClick={this.showFormEdit}>Editar</Button>
                     {this.state.show && <Edit/>}
-                <Modal isOpen={this.state.modalInsertar}>
+                {/* modal form to edit */}
+                <Modal isOpen={this.state.modalEdit}>
                     <ModalHeader>
                         <div>
-                            <h3>Inserte provedor</h3>
+                            <h3>Editar provedor</h3>
                         </div>
                     </ModalHeader>
                     <ModalBody>
                         <FormGroup>
                             <label>Id:</label>
-                            <input className="form-control" readOnly type="text" />
+                            <input className="form-control" readOnly type="text" value={this.props.data.id}/>
                         </FormGroup>
                         <FormGroup>
                             <label>Nit:</label>
@@ -70,8 +79,8 @@ class Edit extends React.Component {
                         </FormGroup>
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="success" onClick={this.insertElement}>Guardar</Button>{' '}
-                        <Button color="danger" onClick={this.hideForm}>Cancelar</Button>{' '}
+                        <Button color="success" >Editar</Button>{' '}
+                        <Button color="danger" onClick={this.hideFormEdit} >Cancelar</Button>{' '}
                     </ModalFooter>
                 </Modal>
             </div>            
